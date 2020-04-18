@@ -17,9 +17,7 @@ connection.connect(function(err) {
     }
     console.log("connected as id " + connection.threadId);
 
-    console.log(chalk.cyan("************************************** \n*****     WELCOME TO BAMAZON     ***** \n**************************************"));
-    
-    
+    console.log(chalk.red("************************************\n*****    WELCOME TO BAMAZON    *****\n************************************\nFOR ALL YOUR END-OF-THE-WORLD NEEDS"));
     
     start();
 });
@@ -30,14 +28,15 @@ function start() {
             type: "list",
             name: "options",
             message: "What would you like to do today?",
-            choices: ["Make a purchase from the store", "Sell a product to the store"]
+            choices: ["Make a purchase from the store",
+            "Sell a product to the store"]
         }
     ]).then(function(selection) {
         if (selection.options === "Make a purchase from the store") {
-            console.log();
+            makePurchase();
         }
         else if (selection.options === "Sell a product to the store") {
-            console.log("You want to sell");
+            // sell function
         }
         else {
             connection.end();
@@ -45,9 +44,15 @@ function start() {
     });
 }
 
-// connection.query("select * from products", function(err, res) {
-//     if (err) {
-//         throw err;
-//     }
-//     console.log(res);
-// })
+function makePurchase() {
+    connection.query("select * from products", function(err, res) {
+        if (err) {
+            throw err;
+        }
+        console.log("Item ID  Product Name  Department Name  Price  Quantity in Stock");
+        console.log("-------  ------------  ---------------  -----  -----------------");
+        for (var i = 0; i < res.length; i++) {
+            console.log(res[i].item_id + "     " + res[i].product_name + "     " + res[i].department_name + "     " + res[i].price + "     " + res[i].stock_quantity);
+        }
+    })
+}
