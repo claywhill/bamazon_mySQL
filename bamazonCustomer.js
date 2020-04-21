@@ -37,7 +37,7 @@ function start() {
             break;
 
         case "Sell a product to the store":
-            sellBack();
+            // sellBack();
             break;
         }
     })
@@ -61,11 +61,11 @@ function makePurchase() {
             table.push([res[i].item_id, res[i].product_name, res[i].department_name, res[i].price, res[i].stock_quantity]);
         }
         console.log(table.toString());
+        buyID();
     })
-    buyID();
 }
 
-function sellBack();
+// function sellBack();
 
 function sellID() {
     inquirer.prompt([
@@ -168,8 +168,8 @@ function buyID() {
 
                 )
             }
+            keepShopping();
         })
-        keepShopping();
     })
 }
 
