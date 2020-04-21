@@ -118,33 +118,28 @@ function sellID() {
         connection.query(query, [selling.sellItem], function(err, res) {
             if (err)
                 throw err;
-            // if (selling.sellItem > res[0].stock_quantity) {
-            //     console.log("Sorry! Only " + res[0].stock_quantity + " in stock.")
-            // } else {
-                var sales = res[0].buyback_price * selling.quantityToSell;
-                console.log("You have successfully sold your item(s). You have received a gift card of $" + sales);
-                var newQuantity = res[0].stock_quantity + parseInt(selling.quantityToSell);
-                connection.query("UPDATE buyBack SET ? WHERE ?", [
-                {
-                    stock_quantity: newQuantity
-                },
-                {
-                    item_id: selling.sellItem
-                }
-                ],
 
-                )
-                connection.query("UPDATE products SET ? WHERE ?", [
-                    {
-                        stock_quantity: newQuantity
-                    },
-                    {
-                        item_id: selling.sellItem
-                    }
-                    ],
-    
-                    )
-            // }
+            var sales = res[0].buyback_price * selling.quantityToSell;
+            console.log("You have successfully sold your item(s). You have received a gift card of $" + sales);
+            var newQuantity = res[0].stock_quantity + parseInt(selling.quantityToSell);
+            connection.query("UPDATE buyBack SET ? WHERE ?", [
+            {
+                stock_quantity: newQuantity
+            },
+            {
+                item_id: selling.sellItem
+            }
+            ],
+            )
+            connection.query("UPDATE products SET ? WHERE ?", [
+            {
+                stock_quantity: newQuantity
+            },
+            {
+                item_id: selling.sellItem
+            }
+            ],
+            )
             keepShopping();
         })
     })
@@ -198,15 +193,15 @@ function buyID() {
 
                 )
                 connection.query("UPDATE buyBack SET ? WHERE ?", [
-                    {
-                        stock_quantity: newQuantity
-                    },
-                    {
-                        item_id: purchase.product
-                    }
-                    ],
-    
-                    )
+                {
+                    stock_quantity: newQuantity
+                },
+                {
+                    item_id: purchase.product
+                }
+                ],
+
+                )
             }
             keepShopping();
         })
