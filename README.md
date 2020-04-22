@@ -1,10 +1,11 @@
 # bamazon_mySQL
 <img src = "screenshot.jpg" width = "500">
 <a href = "https://drive.google.com/file/d/1cGBtW9EO18DX8jJ528S-zzs_b9VBLIr4/view>Watch Video</a>
+           https://drive.google.com/file/d/1cGBtW9EO18DX8jJ528S-zzs_b9VBLIr4/view
 
 ## Usage
 1. Clone the repo
-1. npm install mysql, inquirer, chalk, cli-table2
+1. npm install inquirer, mysql, cli-table2, chalk
 1. Copy the data from seeds.sql into your own SQL database
 1. Link your database to the bamazonCustomer.js file
 
