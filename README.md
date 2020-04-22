@@ -1,7 +1,6 @@
 # bamazon_mySQL
-<img src = "screenshot.jpg" width = "500">
-<a href = "https://drive.google.com/file/d/1cGBtW9EO18DX8jJ528S-zzs_b9VBLIr4/view>Watch Video</a>
-           https://drive.google.com/file/d/1cGBtW9EO18DX8jJ528S-zzs_b9VBLIr4/view
+<img src = "Screenshot.jpg" width = "500">
+<a href = "https://drive.google.com/file/d/1cGBtW9EO18DX8jJ528S-zzs_b9VBLIr4/view">Watch Video</a>
 
 ## Usage
 1. Clone the repo
